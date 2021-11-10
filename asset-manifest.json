@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/ruslan-bondarenko/tt_fourmeta/static/js/main.952744f8.chunk.js",
+    "main.js.map": "/ruslan-bondarenko/tt_fourmeta/static/js/main.952744f8.chunk.js.map",
+    "runtime-main.js": "/ruslan-bondarenko/tt_fourmeta/static/js/runtime-main.93cae3a0.js",
+    "runtime-main.js.map": "/ruslan-bondarenko/tt_fourmeta/static/js/runtime-main.93cae3a0.js.map",
+    "static/js/2.a46b5b8c.chunk.js": "/ruslan-bondarenko/tt_fourmeta/static/js/2.a46b5b8c.chunk.js",
+    "static/js/2.a46b5b8c.chunk.js.map": "/ruslan-bondarenko/tt_fourmeta/static/js/2.a46b5b8c.chunk.js.map",
+    "index.html": "/ruslan-bondarenko/tt_fourmeta/index.html",
+    "static/js/2.a46b5b8c.chunk.js.LICENSE.txt": "/ruslan-bondarenko/tt_fourmeta/static/js/2.a46b5b8c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.93cae3a0.js",
+    "static/js/2.a46b5b8c.chunk.js",
+    "static/js/main.952744f8.chunk.js"
+  ]
+}

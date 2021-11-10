@@ -1,0 +1,2 @@
+(this.webpackJsonpfourmeta_tt=this.webpackJsonpfourmeta_tt||[]).push([[0],{4:function(t,e,n){"use strict";n.r(e);n(0);var r=n(3),s=n.n(r),c=n(2),o=function(){return Object(c.jsx)("h1",{children:"Test"})};s.a.render(Object(c.jsx)(o,{}),document.getElementById("root"))}},[[4,1,2]]]);
+//# sourceMappingURL=main.952744f8.chunk.js.map
