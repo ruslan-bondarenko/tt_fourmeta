@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# SpaceX Cargo Planner
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SpaceX is experiencing an increasing demand of shipments to Mars and has commissioned an application to automate the needed cargo space calculations.
 
-## Available Scripts
+## High level overview
 
-In the project directory, you can run:
+The application should load existing set of shipments over the network. After which they can be filtered, viewed, edited and saved locally for later viewing.
 
-### `npm start`
+As a first feature it will calculate the required number of cargo bays for each shipment. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## UI
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![](cargo-planner-wireframe.png)
 
-### `npm test`
+The application will mostly be used on desktop environments but it should be usable on smaller viewports too.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Functionality
 
-### `npm run build`
+* When the user loads the application it first checks for locally saved shipments and loads them. In case there are none it displays a message asking to load a set over the network.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Clicking the “Load” button loads all the shipments over the network from _shipments.json_ overwriting any existing ones.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Clicking the “Save” button saves the existing state of shipments locally for later usage.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Typing in a search box filters the existing list of loaded shipments by company name.
 
-### `npm run eject`
+* Clicking a specific shipment displays the shipment details.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* Each shipment details view should have an unique URL.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Changing the “Cargo boxes” field recalculates the needed number of cargo bays.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Calculating the needed number of cargo bays
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Each shipment specifies a comma separated string of cargo box units where each unit is represented by a number.
 
-## Learn More
+```JSON
+{
+  "id": "d3ff0c68892",
+  "name": "Amazon.com",
+  "email": "contact@amazon.com",
+  "boxes": "6.8,7.9,3"
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The following shipment consists of 3 cargo boxes with the following units 6.8, 7.9 and 3.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Each Starship cargo bay can hold up to **10** units.
 
-### Code Splitting
+The example shipment would require 2 cargo bays.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Another shipment `6.2,5.9,4,6.9,4.4,1.7,9.5` would require 4 cargo bays.
 
-### Analyzing the Bundle Size
+## Things we value
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Accessible markup
+* Best practices
+* Clean and understandable code
 
-### Making a Progressive Web App
+## Other
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Author here, I appreciate any free time you spend on this. I put the assignment together around 3 areas: layout (HTML, CSS), library/framework knowledge (React, Vue.js, Angular) and your thinking in code. My advice is to first start with these areas and continue from there.
