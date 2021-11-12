@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navigation.scss';
-import dataFromJson from '../../data/shipments.json';
+// import dataFromJson from '../../data/shipments.json';
 
 export class Navigation extends React.Component {
   state = {
@@ -32,19 +32,19 @@ export class Navigation extends React.Component {
               <button
                 type="button"
                 className='nav__btn-item'
-                onClick={() => {
-                  localStorage.getItem('dataOfCompanies');
-                  JSON.parse(localStorage.getItem('dataOfCompanies'));
-                }}
+                // onClick={() => {
+                //   localStorage.getItem('dataOfCompanies');
+                //   JSON.parse(localStorage.getItem('dataOfCompanies'));
+                // }}
               >
                 Load
               </button>
               <button
                 type='button'
                 className='nav__btn-item'
-                onClick={() => {
-                  localStorage.setItem('dataOfCompanies', JSON.stringify(dataFromJson));
-                }}
+                // onClick={() => {
+                //   localStorage.setItem('dataOfCompanies', JSON.stringify(dataFromJson));
+                // }}
               >
                 Save
               </button>
