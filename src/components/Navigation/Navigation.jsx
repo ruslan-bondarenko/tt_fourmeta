@@ -1,8 +1,11 @@
 import React from 'react';
 import './Navigation.scss';
+import dataFromJson from '../../data/shipments.json';
 
 export class Navigation extends React.Component {
   state = {
+    isLoaded: false,
+    //arr
   }
 
   render() {
@@ -21,24 +24,32 @@ export class Navigation extends React.Component {
             className="search_input search"
             placeholder="Search"
             onChange={(event) => {
-              this.setState({ query: event.target.value });
               this.props.getQuery(event.target.value);
+              console.log(event.target.value);
             }}
           />
-          <div className='nav__btn'>
-            <button
-              type='button'
-              className='nav__btn-item'
-            >
-              Load
-            </button>
-            <button
-              type='button'
-              className='nav__btn-item'
-            >
-              Save
-            </button>
-          </div>
+            <div className='nav__btn'>
+              <button
+                type="button"
+                className='nav__btn-item'
+                onClick={() => {
+                  localStorage.getItem('dataOfCompanies');
+                  JSON.parse(localStorage.getItem('dataOfCompanies'));
+                }}
+              >
+                Load
+              </button>
+              <button
+                type='button'
+                className='nav__btn-item'
+                onClick={() => {
+                  localStorage.setItem('dataOfCompanies', JSON.stringify(dataFromJson));
+                }}
+              >
+                Save
+              </button>
+            </div>
+            
         </nav>
       </div>
       )

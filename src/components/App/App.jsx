@@ -3,14 +3,16 @@ import { Link, Route, Routes} from "react-router-dom";
 import { Navigation } from '../Navigation/Navigation';
 
 import './App.scss';
-import dataFromJson from '../../data/shipments.json';
 import { Fragment } from 'react';
+import { getCompanies } from '../../api/api';
 
 const App = () => {
   const [searchValue, setSearchValue] = useState("");
-  // const [cargoBoxesValue, setCargoBoxesValue] = useState("");
+  // const [cargoBoxPut, setCargoBoxPut] = useState("");
+  // const dataOfCompanies = JSON.parse(localStorage.getItem("dataOfCompanies")) || [];
+  const dataOfCompanies = getCompanies();
 
-  const filteredCompanies = dataFromJson.filter(item => {
+  const filteredCompanies = dataOfCompanies.filter(item => {
     const searchRequest = searchValue.toLowerCase();
     const name = item.name.toLowerCase();
     return name.includes(searchRequest);
@@ -23,9 +25,14 @@ const App = () => {
       <div className="main">
         <div className="main__sidebar">
           <ul>
-            {(filteredCompanies.length === 0 &&
+            {(JSON.parse(localStorage.getItem("dataOfCompanies")) && filteredCompanies.length === 0 &&
               (<p>
                 No companies
+              </p> )
+            )}
+            {(JSON.parse(localStorage.getItem("dataOfCompanies")) === null &&
+              (<p>
+                Press «Load» to get data!
               </p> )
             )}
 
@@ -69,11 +76,10 @@ const App = () => {
                         type="text"
                         id="cargo-boxes"
                         className="main__company-cargo-put"
-                        value={item.boxes}
-                        // onChange={(event) => {
-                        //   // setCargoBoxesValue(event.target.value);
-                        //   item.boxes = event.target.value;
-                        // }}
+                        value={item.boxes || ''}
+                        onChange={(event) => {
+                          console.log(event.target.value);
+                        }}
                       />
                     </div>
                   }
