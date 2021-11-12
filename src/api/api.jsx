@@ -11,4 +11,6 @@ export const request = (url) => {
     })
 };
 
-export const getCompanies = () => request('/data/shipments.json');
+export const getCompanies = () => {
+  return request('/data/shipments.json');
+};

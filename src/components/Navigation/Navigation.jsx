@@ -1,11 +1,16 @@
 import React from 'react';
 import './Navigation.scss';
-// import dataFromJson from '../../data/shipments.json';
+import { getCompanies } from '../../api/api';
 
 export class Navigation extends React.Component {
   state = {
     isLoaded: false,
-    //arr
+    companies: [],
+  }
+
+  async componentDidMount() {
+    const companies = await getCompanies();
+    this.setState({ companies })
   }
 
   render() {
@@ -32,19 +37,22 @@ export class Navigation extends React.Component {
               <button
                 type="button"
                 className='nav__btn-item'
-                // onClick={() => {
-                //   localStorage.getItem('dataOfCompanies');
-                //   JSON.parse(localStorage.getItem('dataOfCompanies'));
-                // }}
+                onClick={() => {
+                  console.log("Load");
+                  JSON.parse(localStorage.getItem('dataOfCompanies'));
+                  this.props.getData(this.state.companies);
+                }}
               >
                 Load
               </button>
+
               <button
                 type='button'
                 className='nav__btn-item'
-                // onClick={() => {
-                //   localStorage.setItem('dataOfCompanies', JSON.stringify(dataFromJson));
-                // }}
+                onClick={() => {
+                  console.log("Save");
+                  localStorage.setItem('dataOfCompanies', JSON.stringify(this.state.companies));
+                }}
               >
                 Save
               </button>

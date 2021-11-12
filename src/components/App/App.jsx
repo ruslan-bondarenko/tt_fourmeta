@@ -4,13 +4,15 @@ import { Navigation } from '../Navigation/Navigation';
 
 import './App.scss';
 import { Fragment } from 'react';
-import { getCompanies } from '../../api/api';
+// import { getCompanies } from '../../api/api';
 
 const App = () => {
   const [searchValue, setSearchValue] = useState("");
+  const [dataFromJson, setDataFromJson] = useState([]);
   // const [cargoBoxPut, setCargoBoxPut] = useState("");
   // const dataOfCompanies = JSON.parse(localStorage.getItem("dataOfCompanies")) || [];
-  const dataOfCompanies = getCompanies();
+  const dataOfCompanies = JSON.parse(localStorage.getItem("dataOfCompanies")) || dataFromJson ;
+  // console.log('dataOfCompanies,', dataFromJson);
 
   const filteredCompanies = dataOfCompanies.filter(item => {
     const searchRequest = searchValue.toLowerCase();
@@ -20,20 +22,19 @@ const App = () => {
 
   return (
     <div>
-      <Navigation getQuery={setSearchValue} searchValue={searchValue}/>
+      <Navigation getQuery={setSearchValue} getData={setDataFromJson} searchValue={searchValue}/>
 
       <div className="main">
         <div className="main__sidebar">
           <ul>
-            {(JSON.parse(localStorage.getItem("dataOfCompanies")) && filteredCompanies.length === 0 &&
-              (<p>
-                No companies
-              </p> )
+
+            {(dataFromJson.length === 0 && JSON.parse(localStorage.getItem('dataOfCompanies')) == null)&&
+            (
+              <p>Press Load to get data!</p>
             )}
-            {(JSON.parse(localStorage.getItem("dataOfCompanies")) === null &&
-              (<p>
-                Press «Load» to get data!
-              </p> )
+            {((dataFromJson.length > 0 || JSON.parse(localStorage.getItem('dataOfCompanies'))) && filteredCompanies.length === 0)&&
+            (
+              <p>No companies</p>
             )}
 
             {filteredCompanies.map(companies => {
