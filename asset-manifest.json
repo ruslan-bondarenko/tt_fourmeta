@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/tt_fourmeta/static/css/main.f391332e.chunk.css",
-    "main.js": "/tt_fourmeta/static/js/main.1468fc05.chunk.js",
-    "main.js.map": "/tt_fourmeta/static/js/main.1468fc05.chunk.js.map",
+    "main.js": "/tt_fourmeta/static/js/main.e284b1e5.chunk.js",
+    "main.js.map": "/tt_fourmeta/static/js/main.e284b1e5.chunk.js.map",
     "runtime-main.js": "/tt_fourmeta/static/js/runtime-main.8e431a54.js",
     "runtime-main.js.map": "/tt_fourmeta/static/js/runtime-main.8e431a54.js.map",
-    "static/js/2.46d5fc7b.chunk.js": "/tt_fourmeta/static/js/2.46d5fc7b.chunk.js",
-    "static/js/2.46d5fc7b.chunk.js.map": "/tt_fourmeta/static/js/2.46d5fc7b.chunk.js.map",
+    "static/js/2.ad195ffd.chunk.js": "/tt_fourmeta/static/js/2.ad195ffd.chunk.js",
+    "static/js/2.ad195ffd.chunk.js.map": "/tt_fourmeta/static/js/2.ad195ffd.chunk.js.map",
     "index.html": "/tt_fourmeta/index.html",
     "static/css/main.f391332e.chunk.css.map": "/tt_fourmeta/static/css/main.f391332e.chunk.css.map",
-    "static/js/2.46d5fc7b.chunk.js.LICENSE.txt": "/tt_fourmeta/static/js/2.46d5fc7b.chunk.js.LICENSE.txt",
+    "static/js/2.ad195ffd.chunk.js.LICENSE.txt": "/tt_fourmeta/static/js/2.ad195ffd.chunk.js.LICENSE.txt",
     "static/media/Navigation.scss": "/tt_fourmeta/static/media/Search.0559fc54.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.8e431a54.js",
-    "static/js/2.46d5fc7b.chunk.js",
+    "static/js/2.ad195ffd.chunk.js",
     "static/css/main.f391332e.chunk.css",
-    "static/js/main.1468fc05.chunk.js"
+    "static/js/main.e284b1e5.chunk.js"
   ]
 }
