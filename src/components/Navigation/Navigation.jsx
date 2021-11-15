@@ -51,7 +51,7 @@ export class Navigation extends React.Component {
                 className='nav__btn-item'
                 onClick={() => {
                   console.log("Save");
-                  localStorage.setItem('dataOfCompanies', JSON.stringify(this.state.companies));
+                  localStorage.setItem('dataOfCompanies', JSON.stringify(this.props.importData));
                 }}
               >
                 Save

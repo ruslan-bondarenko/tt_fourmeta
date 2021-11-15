@@ -4,6 +4,7 @@ import { Navigation } from '../Navigation/Navigation';
 
 import './App.scss';
 import { Fragment } from 'react';
+import { RouteElement } from '../RouteElement';
 
 const App = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -19,7 +20,7 @@ const App = () => {
 
   return (
     <div>
-      <Navigation getQuery={setSearchValue} getData={setDataFromJson} />
+      <Navigation getQuery={setSearchValue} getData={setDataFromJson} importData={dataOfCompanies}/>
 
       <div className="main">
         <div className="main__sidebar">
@@ -56,30 +57,8 @@ const App = () => {
                   <Route
                     path={`/${item.id}`}
                     element={
-                    <div className="main__items">
-                      <h2 className="main__company-name">{item.name}</h2>
-                      <h3 className="main__company-email"><a href={`mailto:${item.email}`}>{item.email}</a></h3>
-                      <p
-                        className="main__company-num-of-boxes"
-                      >
-                        Number of required cargo bays: {(item.boxes !== null) ? item.boxes.split(',').length : 0}
-                      </p>
-                      <label
-                        htmlFor="cargo-boxes"
-                        className="main__company-cargo-title"
-                      >
-                        Cargo boxes:
-                      </label>
-                      <input
-                        type="text"
-                        id="cargo-boxes"
-                        className="main__company-cargo-put"
-                        value={item.boxes}
-                        onChange={(event) => {
-                        }}
-                      />
-                    </div>
-                  }
+                      <RouteElement data={item} />
+                    }
                   />
                 </Fragment>
               )
