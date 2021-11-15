@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
-import { Link, Route, Routes} from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import { Navigation } from '../Navigation/Navigation';
 
 import './App.scss';
 import { Fragment } from 'react';
-// import { getCompanies } from '../../api/api';
 
 const App = () => {
   const [searchValue, setSearchValue] = useState("");
   const [dataFromJson, setDataFromJson] = useState([]);
-  // const [cargoBoxPut, setCargoBoxPut] = useState("");
-  // const dataOfCompanies = JSON.parse(localStorage.getItem("dataOfCompanies")) || [];
+  
   const dataOfCompanies = JSON.parse(localStorage.getItem("dataOfCompanies")) || dataFromJson ;
-  // console.log('dataOfCompanies,', dataFromJson);
 
   const filteredCompanies = dataOfCompanies.filter(item => {
     const searchRequest = searchValue.toLowerCase();
@@ -22,7 +19,7 @@ const App = () => {
 
   return (
     <div>
-      <Navigation getQuery={setSearchValue} getData={setDataFromJson} searchValue={searchValue}/>
+      <Navigation getQuery={setSearchValue} getData={setDataFromJson} />
 
       <div className="main">
         <div className="main__sidebar">
@@ -77,9 +74,8 @@ const App = () => {
                         type="text"
                         id="cargo-boxes"
                         className="main__company-cargo-put"
-                        value={item.boxes || ''}
+                        value={item.boxes}
                         onChange={(event) => {
-                          console.log(event.target.value);
                         }}
                       />
                     </div>
