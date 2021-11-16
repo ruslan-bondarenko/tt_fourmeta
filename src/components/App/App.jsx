@@ -24,7 +24,7 @@ const App = () => {
 
       <div className="main">
         <div className="main__sidebar">
-          <ul>
+          <ul className="main__group">
 
             {(dataFromJson.length === 0 && JSON.parse(localStorage.getItem('dataOfCompanies')) == null)&&
             (
