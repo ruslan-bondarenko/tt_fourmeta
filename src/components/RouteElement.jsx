@@ -14,8 +14,6 @@ export const RouteElement = (item) => {
     if (item.data.boxes == null) {
       setInputValue('');
     }
-
-    console.log('IF', item.data.name);
   }
 
   return (

@@ -4,15 +4,18 @@ import { getCompanies } from '../../api/api';
 
 export class Navigation extends React.Component {
   state = {
-    isLoaded: false,
     companies: [],
   }
-
-  async componentDidMount() {
+  
+  async restoreData() {
     const companies = await getCompanies();
-    this.setState({ companies })
+    this.setState({ companies });
   }
 
+  componentDidMount() {
+    this.restoreData();
+  }
+  
   render() {
 
     return (  
@@ -30,7 +33,6 @@ export class Navigation extends React.Component {
             placeholder="Search"
             onChange={(event) => {
               this.props.getQuery(event.target.value);
-              console.log(event.target.value);
             }}
           />
             <div className='nav__btn'>
@@ -39,7 +41,7 @@ export class Navigation extends React.Component {
                 className='nav__btn-item'
                 onClick={() => {
                   console.log("Load");
-                  JSON.parse(localStorage.getItem('dataOfCompanies'));
+                  this.restoreData();
                   this.props.getData(this.state.companies);
                 }}
               >
