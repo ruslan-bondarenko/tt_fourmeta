@@ -1,14 +1,15 @@
+import classNames from "classnames";
 import React, { useState } from "react";
 
 export const RouteElement = (item) => {
   const [inputValue, setInputValue] = useState(item.data.boxes);
 
   const [currentId, setCurrentId] = useState(item.data.id);
-
-  console.log("Route item", item.data);
+  const [inputError, setInputError] = useState(false);
 
   if (currentId !== item.data.id) {
     setCurrentId(item.data.id);
+    setInputError(false);
     setInputValue(item.data.boxes);
 
     if (item.data.boxes == null) {
@@ -18,8 +19,8 @@ export const RouteElement = (item) => {
 
   return (
     <div className="main__items">
-      <h2 className="main__company-name">{item.data.name}</h2>
-      <h3 className="main__company-email"><a href={`mailto:${item.data.email}`}>{item.data.email}</a></h3>
+      <h2 className="main__company-name title">{item.data.name}</h2>
+      <h3 className="main__company-email subtitle"><a href={`mailto:${item.data.email}`}>{item.data.email}</a></h3>
       <p
         className="main__company-num-of-boxes"
       >
@@ -34,13 +35,24 @@ export const RouteElement = (item) => {
       <input
         type="text"
         id="cargo-boxes"
-        className="main__company-cargo-put"
+        className={classNames({
+          "input main__company-cargo-put": true,
+          "input is-danger": inputError,
+        })}
         value={inputValue}
         onChange={(event) => {
-          setInputValue(event.target.value);
-          item.data.boxes = event.target.value;
+          if (!event.target.value.split(',').filter(el => el !== '').every(el => Number(el))) {
+            setInputError(true);
+          } else {
+            setInputError(false);
+            setInputValue(event.target.value.trim());
+            item.data.boxes = event.target.value.trim();
+          }
         }}
       />
+      {inputError && (
+        <div style={{color: "#f00", margin: "10px 0 0 0"}}>Invalid value, enter only numbers!</div>
+      )}
     </div>
   );
 }
