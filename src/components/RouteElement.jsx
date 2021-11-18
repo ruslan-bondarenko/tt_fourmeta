@@ -23,7 +23,7 @@ export const RouteElement = (item) => {
       <p
         className="main__company-num-of-boxes"
       >
-        Number of required cargo bays: {(inputValue !== null) ? inputValue.split(',').filter(el => el !== '').length : 0}
+        Number of required cargo bays: {(inputValue !== null) ? Math.ceil(inputValue.split(',').reduce((sum, n) => sum + Number(n) / 10, 0)) : 0}
       </p>
       <label
         htmlFor="cargo-boxes"
