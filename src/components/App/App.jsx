@@ -28,11 +28,11 @@ const App = () => {
 
             {(dataFromJson.length === 0 && JSON.parse(localStorage.getItem('dataOfCompanies')) == null)&&
             (
-              <p style={{textAlign: 'center'}}>Press Load to get data!</p>
+              <div className="notification is-danger" style={{textAlign: 'center'}}>Press Load to get data!</div>
             )}
             {((dataFromJson.length > 0 || JSON.parse(localStorage.getItem('dataOfCompanies'))) && filteredCompanies.length === 0)&&
             (
-              <p style={{textAlign: 'center'}}>No companies</p>
+              <p className="notification is-info" style={{textAlign: 'center'}}>No companies</p>
             )}
 
             {filteredCompanies.map(companies => {
